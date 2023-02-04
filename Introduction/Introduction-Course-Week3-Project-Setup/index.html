@@ -1,0 +1,1886 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="My personal notes while I'm learning iOS on Coursera">
+      
+      
+      
+      
+        <link rel="prev" href="../Introduction-Course-Week2-Simulators/">
+      
+      
+        <link rel="next" href="../../VCS-Course-2/Version-Control-Systems-Week1/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+    
+    
+      
+        <title>Project Setup - Meta iOS Developer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link rel="stylesheet" href="../../assets/stylesheets/custom.css">
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#project-planning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  Connect with <strong>@pejmans21</strong> on
+  <a rel="me" href="https://www.linkedin.com/in/pejman-samadi/">
+    <span class="twemoji linkedin">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </span>
+    <strong>LinkedIn</strong>
+  </a>
+  and
+  <a href="https://twitter.com/pejsamadi">
+    <span class="twemoji twitter">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </span>
+    <strong>Twitter</strong>
+  </a>
+  .
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Meta iOS Developer" class="md-header__button md-logo" aria-label="Meta iOS Developer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M640 317.9c0 91.3-39.4 148.5-110.3 148.5-62.6 0-95.8-34.6-156.9-136.6l-31.4-52.6c-8.3-12.5-14.5-24.2-21.2-35-20.1 33.8-47.1 83-47.1 83-67 116.6-104.6 141.2-156.9 141.2C43.42 466.4 0 409.1 0 320.5c0-143 79.78-278.1 183.9-278.1 50.2 0 93.8 24.68 144.8 89.5 37.1-50.1 78.1-89.5 130.6-89.5 99.1 0 180.7 125.7 180.7 275.5zM287.4 192.2c-42.9-62.1-70.9-80.5-104.4-80.5-61.9 0-113.78 106.1-113.78 210 0 48.5 18.48 75.7 49.58 75.7 30.2 0 49-19 103.2-103.8 0 0 24.7-39.1 65.4-101.4zm243.8 205.2c32.2 0 46.9-27.5 46.9-74.9 0-124.2-54.3-225.42-123.2-225.42-33.2 0-61.1 25.92-94.9 78.02 9.4 13.8 19.1 29 29.3 45.4l37.5 62.4c58.7 94.1 73.5 114.5 104.4 114.5z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Meta iOS Developer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Project Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pejmanS21/pejmans21.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pejmans21/Meta iOS Developer
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Meta iOS Developer" class="md-nav__button md-logo" aria-label="Meta iOS Developer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M640 317.9c0 91.3-39.4 148.5-110.3 148.5-62.6 0-95.8-34.6-156.9-136.6l-31.4-52.6c-8.3-12.5-14.5-24.2-21.2-35-20.1 33.8-47.1 83-47.1 83-67 116.6-104.6 141.2-156.9 141.2C43.42 466.4 0 409.1 0 320.5c0-143 79.78-278.1 183.9-278.1 50.2 0 93.8 24.68 144.8 89.5 37.1-50.1 78.1-89.5 130.6-89.5 99.1 0 180.7 125.7 180.7 275.5zM287.4 192.2c-42.9-62.1-70.9-80.5-104.4-80.5-61.9 0-113.78 106.1-113.78 210 0 48.5 18.48 75.7 49.58 75.7 30.2 0 49-19 103.2-103.8 0 0 24.7-39.1 65.4-101.4zm243.8 205.2c32.2 0 46.9-27.5 46.9-74.9 0-124.2-54.3-225.42-123.2-225.42-33.2 0-61.1 25.92-94.9 78.02 9.4 13.8 19.1 29 29.3 45.4l37.5 62.4c58.7 94.1 73.5 114.5 104.4 114.5z"/></svg>
+
+    </a>
+    Meta iOS Developer
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pejmanS21/pejmans21.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pejmans21/Meta iOS Developer
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../table-of-contents/" class="md-nav__link">
+        Meta iOS Developer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Introduction to iOS Mobile Application Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction to iOS Mobile Application Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          Week1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Week1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introduction-Course-Week1-Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introduction-Course-Week1-Mobile-Platforms/" class="md-nav__link">
+        Mobile-Platforms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introduction-Course-Week1-iOS-Developement/" class="md-nav__link">
+        iOS-Developement
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Week2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Week2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introduction-Course-Week2-Simulators/" class="md-nav__link">
+        Simulators
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Week3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Week3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Project Setup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Project Setup
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-project-planning" class="md-nav__link">
+    Basic project planning
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic project planning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-project-performance-and-success-rates" class="md-nav__link">
+    1. Project performance and success rates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-clear-objectives" class="md-nav__link">
+    2. Clear objectives
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-resource-allocation" class="md-nav__link">
+    3. Resource allocation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-communication" class="md-nav__link">
+    4. Communication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-project-specific-training" class="md-nav__link">
+    5. Project-specific training
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avplayer" class="md-nav__link">
+    AVPlayer
+  </a>
+  
+    <nav class="md-nav" aria-label="AVPlayer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avplayer-for-video-playback" class="md-nav__link">
+    AVPlayer for video playback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods-for-controlling-video-playblack" class="md-nav__link">
+    Methods for controlling video playblack
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods for controlling video playblack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avplayerurl-urlfileurlwithpath-path" class="md-nav__link">
+    AVPlayer(url: URL(fileURLWithPath: path))
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#play" class="md-nav__link">
+    play()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currenttime" class="md-nav__link">
+    currentTime()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pause" class="md-nav__link">
+    pause()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ismuted" class="md-nav__link">
+    isMuted ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avplayerviewcontroller" class="md-nav__link">
+    AVPlayerViewController
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storyboards-versus-swiftui" class="md-nav__link">
+    Storyboards versus SwiftUI
+  </a>
+  
+    <nav class="md-nav" aria-label="Storyboards versus SwiftUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storyboard" class="md-nav__link">
+    Storyboard
+  </a>
+  
+    <nav class="md-nav" aria-label="Storyboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    Advantages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages" class="md-nav__link">
+    Disadvantages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swiftui" class="md-nav__link">
+    SwiftUI
+  </a>
+  
+    <nav class="md-nav" aria-label="SwiftUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages_1" class="md-nav__link">
+    Advantages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages_1" class="md-nav__link">
+    Disadvantages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-uiview" class="md-nav__link">
+    iOS UIView
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional resources
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    Learn more
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-create-the-player" class="md-nav__link">
+    Exercise: Create the player
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise: Create the player">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aims" class="md-nav__link">
+    Aims
+  </a>
+  
+    <nav class="md-nav" aria-label="Aims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    Goal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectives" class="md-nav__link">
+    Objectives
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Version Control
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Version Control
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VCS-Course-2/Version-Control-Systems-Week1/" class="md-nav__link">
+        Introduction to Version Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VCS-Course-2/Version-Control-Systems-Week2/" class="md-nav__link">
+        Unix Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VCS-Course-2/Version-Control-Systems-Week3/" class="md-nav__link">
+        Git & Repository
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Programming Fundamentals in Swift
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Programming Fundamentals in Swift
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+          Week1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Week1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week1-Basics/" class="md-nav__link">
+        Basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week1-Conditions/" class="md-nav__link">
+        Conditions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week1-Loops/" class="md-nav__link">
+        Loops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week1-Optionals/" class="md-nav__link">
+        Optionals
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          Week2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Week2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week2-Arrays-Tuples/" class="md-nav__link">
+        Arrays & Tuples
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week2-Collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          Week3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Week3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week3-Functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week3-Closures/" class="md-nav__link">
+        Closures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          Week4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Week4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week4-Structures/" class="md-nav__link">
+        Structures
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week4-Classes/" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+          Project
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Project
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week5-Part1/" class="md-nav__link">
+        Part 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week5-Part2/" class="md-nav__link">
+        Part 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PFiS-Course-3/Programming-Fundamentals-in-Swift-Week5-Part3/" class="md-nav__link">
+        Part 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-project-planning" class="md-nav__link">
+    Basic project planning
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic project planning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-project-performance-and-success-rates" class="md-nav__link">
+    1. Project performance and success rates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-clear-objectives" class="md-nav__link">
+    2. Clear objectives
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-resource-allocation" class="md-nav__link">
+    3. Resource allocation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-communication" class="md-nav__link">
+    4. Communication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-project-specific-training" class="md-nav__link">
+    5. Project-specific training
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avplayer" class="md-nav__link">
+    AVPlayer
+  </a>
+  
+    <nav class="md-nav" aria-label="AVPlayer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avplayer-for-video-playback" class="md-nav__link">
+    AVPlayer for video playback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods-for-controlling-video-playblack" class="md-nav__link">
+    Methods for controlling video playblack
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods for controlling video playblack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avplayerurl-urlfileurlwithpath-path" class="md-nav__link">
+    AVPlayer(url: URL(fileURLWithPath: path))
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#play" class="md-nav__link">
+    play()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currenttime" class="md-nav__link">
+    currentTime()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pause" class="md-nav__link">
+    pause()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ismuted" class="md-nav__link">
+    isMuted ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avplayerviewcontroller" class="md-nav__link">
+    AVPlayerViewController
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storyboards-versus-swiftui" class="md-nav__link">
+    Storyboards versus SwiftUI
+  </a>
+  
+    <nav class="md-nav" aria-label="Storyboards versus SwiftUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storyboard" class="md-nav__link">
+    Storyboard
+  </a>
+  
+    <nav class="md-nav" aria-label="Storyboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    Advantages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages" class="md-nav__link">
+    Disadvantages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swiftui" class="md-nav__link">
+    SwiftUI
+  </a>
+  
+    <nav class="md-nav" aria-label="SwiftUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages_1" class="md-nav__link">
+    Advantages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages_1" class="md-nav__link">
+    Disadvantages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-uiview" class="md-nav__link">
+    iOS UIView
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional resources
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    Learn more
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-create-the-player" class="md-nav__link">
+    Exercise: Create the player
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise: Create the player">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aims" class="md-nav__link">
+    Aims
+  </a>
+  
+    <nav class="md-nav" aria-label="Aims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    Goal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectives" class="md-nav__link">
+    Objectives
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="project-planning">Project Planning<a class="headerlink" href="#project-planning" title="Permanent link"></a></h1>
+<p>The decisions you make before you start to code, your project will determine to a great extent the amount of time you spend coding or manipulating libraries or packages. A clear idea allows you to break the app down into principal components of functionality, which is also known as requirements gathering.</p>
+<p>You need to think about exactly what you want your app to do, asking yourself questions to help guide you and determine the components. Your app will need to make your project idea a reality.</p>
+<blockquote>
+<p>The correct approach starts with planning in the form of requirements gathering this involves answering as many questions as possible to determine the necessary components.</p>
+</blockquote>
+<h2 id="basic-project-planning">Basic project planning<a class="headerlink" href="#basic-project-planning" title="Permanent link"></a></h2>
+<p>Project planning is one of the most critical stages of software development. It is an important part of commencing any new project. That's because it serves as a roadmap that shows the phases of the project, as well as their start and end dates, and dependencies. By the end of this reading, you should recognize the importance of project planning.</p>
+<h3 id="1-project-performance-and-success-rates">1. Project performance and success rates<a class="headerlink" href="#1-project-performance-and-success-rates" title="Permanent link"></a></h3>
+<p>Project planning involves comprehensive mapping and organization of project goals, tasks, schedules and resources before anyone assigns project roles and the team starts implementing the plan. With proper planning in place, you can boost the project performance and success rates of a team.</p>
+<h3 id="2-clear-objectives">2. Clear objectives<a class="headerlink" href="#2-clear-objectives" title="Permanent link"></a></h3>
+<p>Having a clear idea of what needs to be achieved greatly increases the likelihood that you will do it. But, without a concise objective from the start, the project will be complicated. If the team isn't clear on what they are working on, it’s almost impossible to know when the project is completed. Proper planning helps the team focus on the most important things: the objectives and the end goal.</p>
+<h3 id="3-resource-allocation">3. Resource allocation<a class="headerlink" href="#3-resource-allocation" title="Permanent link"></a></h3>
+<p>Planning out a project will tell you how many team members you need to execute the project. The plan also allows project managers to monitor which resources have been allocated and thus avoid excessive allocation.</p>
+<h3 id="4-communication">4. Communication<a class="headerlink" href="#4-communication" title="Permanent link"></a></h3>
+<p>Planning helps communication. With good communication, every team member knows exactly what is required of them ahead of time. A well-written plan will help you communicate key details, making it seamless for you and your entire team to complete specific tasks. Listening to their input and ideas is also a great way to achieve buy-in and foster the commitment of every team member.</p>
+<h3 id="5-project-specific-training">5. Project-specific training<a class="headerlink" href="#5-project-specific-training" title="Permanent link"></a></h3>
+<p>Project planning ensures team members have the required technical know-how to execute the assigned tasks and identifies talent pipelines to provide an adequate supply of trained talents throughout the lifecycle of the project.</p>
+<p>And those are the basics of project planning!</p>
+<hr />
+<h2 id="avplayer">AVPlayer<a class="headerlink" href="#avplayer" title="Permanent link"></a></h2>
+<p>One of the primary uses for smartphones and tablets is to entertain the user by offering them access to quality content. Video is a key form of widely-used content, especially for tablet devices.</p>
+<p>To achieve this on Apple devices, you can use an AVPlayer, which plays video files on iOS. Read on to learn more!</p>
+<h3 id="avplayer-for-video-playback">AVPlayer for video playback<a class="headerlink" href="#avplayer-for-video-playback" title="Permanent link"></a></h3>
+<p>The iOS software development kit (SDK) includes two classes that make video playback implementation on iOS devices extremely easy to implement when developing applications.</p>
+<p>The AVPlayer is the most efficient way to display and play a video in an Apple app. Whenever you add this component to the layout of an activity, it provides a surface onto which a video may be played.</p>
+<p>The following video formats are currently supported on iOS:</p>
+<ul>
+<li>H.263</li>
+<li>H.264 AVC</li>
+<li>MPEG-4 SP</li>
+<li>VP8</li>
+</ul>
+<p>Aside from the surface to display a video, it has a wide range of methods that may be called in order to control the playback of video.</p>
+<h3 id="methods-for-controlling-video-playblack">Methods for controlling video playblack<a class="headerlink" href="#methods-for-controlling-video-playblack" title="Permanent link"></a></h3>
+<p>Some of the more commonly used methods for controlling the playback of video include:</p>
+<h4 id="avplayerurl-urlfileurlwithpath-path">AVPlayer(url: URL(fileURLWithPath: path))<a class="headerlink" href="#avplayerurl-urlfileurlwithpath-path" title="Permanent link"></a></h4>
+<p>This specifies the path (as a URI) of the video media to be played. This can be either a remote video file URL or a local video file on the device.</p>
+<h4 id="play">play()<a class="headerlink" href="#play" title="Permanent link"></a></h4>
+<p>When this function is used, it plays the video.</p>
+<h4 id="currenttime">currentTime()<a class="headerlink" href="#currenttime" title="Permanent link"></a></h4>
+<p>When this function is used, it gets the current time of playback.</p>
+<h4 id="pause">pause()<a class="headerlink" href="#pause" title="Permanent link"></a></h4>
+<p>This function pauses video playback.</p>
+<h4 id="ismuted">isMuted ()<a class="headerlink" href="#ismuted" title="Permanent link"></a></h4>
+<p>This function returns a Boolean value that indicates whether a video is currently muted.</p>
+<h4 id="avplayerviewcontroller">AVPlayerViewController<a class="headerlink" href="#avplayerviewcontroller" title="Permanent link"></a></h4>
+<p>The AVPlayerViewController is the UI to control the video. Specifically, it is a view that contains media controls such as "Play/Pause", "Rewind", "Fast Forward" and a progress slider. It synchronizes the controls with the state of the MediaPlayer. By default, the AVPlayerViewController comes with a default set of controls. If you want to make changes to it, you must implement the AVPlayerViewController programmatically within your Swift code.</p>
+<hr />
+<h2 id="storyboards-versus-swiftui">Storyboards versus SwiftUI<a class="headerlink" href="#storyboards-versus-swiftui" title="Permanent link"></a></h2>
+<p>An iOS developer today has more options for creating a user interface (UI) layout on iOS than ever before. Most developers are familiar with an interface builder called Storyboard and a toolkit released by Apple called SwiftUI.</p>
+<p>Let's explore the differences between Storyboards and SwiftUI and the benefits of using Storyboard for creating UI for the time being.</p>
+<h3 id="storyboard">Storyboard<a class="headerlink" href="#storyboard" title="Permanent link"></a></h3>
+<p>Storyboard is the most popular way to create a UI for iOS applications after its release with iOS 5. By default, any new iOS project created has a Main.storyboard file included in the generated files.</p>
+<p>A storyboard in Xcode is an empty canvas screen that helps you to create various UIs for an application. This file allows you to move different types of views such as a button and text on its surface. With this interface builder, you can create anything from controllers used to manage interactions on the UI to text and image views. You can add controller screens like a TableView controller or navigation controller by simply dragging and dropping from the object library.</p>
+<h4 id="advantages">Advantages<a class="headerlink" href="#advantages" title="Permanent link"></a></h4>
+<ul>
+<li>It's easy to learn, even for beginners</li>
+<li>With storyboard you can create a prototype of an app in a few hours, which makes it easy to visualize the app without writing too much code at an early stage of development.</li>
+<li>The storyboard object library has a wide range of Views such as button and text.</li>
+<li>The developer community is large so it’s easy to get help whenever you hit a roadblock.</li>
+</ul>
+<h4 id="disadvantages">Disadvantages<a class="headerlink" href="#disadvantages" title="Permanent link"></a></h4>
+<ul>
+<li>Source control may be intimidating since the storyboard code is in an xml type format. It may be difficult to resolve conflicts during code merging with another developer.</li>
+<li>As the number of screens keeps growing, managing storyboards can become chaotic as there may be too many files.</li>
+</ul>
+<h3 id="swiftui">SwiftUI<a class="headerlink" href="#swiftui" title="Permanent link"></a></h3>
+<p>SwiftUI was released alongside iOS 13. It is basically a toolkit released by Apple to help developers create UI in a declarative way using Swift language.</p>
+<h4 id="advantages_1">Advantages<a class="headerlink" href="#advantages_1" title="Permanent link"></a></h4>
+<ul>
+<li>It’s easy to build and target multiple iOS platform apps (such as macOS, iOS and iPad apps).</li>
+<li>It offers a combination of drag and drop through Xcode as well as writing code in a Swift file.</li>
+<li>The code is basic and clean.</li>
+<li>SwiftUI views can be easily reused by creating smaller module files.</li>
+</ul>
+<h4 id="disadvantages_1">Disadvantages<a class="headerlink" href="#disadvantages_1" title="Permanent link"></a></h4>
+<ul>
+<li>It supports only iOS 13+ and Xcode 11+, so you cannot build apps with lower OS versions using this.</li>
+<li>It is still relatively new so there aren't as many component options in the SwiftUI as there are in the Storyboard development kit. This means that, to meet app requirements, you must create custom views, such as a search bar.</li>
+<li>There is no seamless way of switching from Storyboard to SwiftUI. This means developers have to continue using Storyboard for existing apps.</li>
+<li>The community is small and, as a result, there is less ongoing support for developers for now.</li>
+</ul>
+<p>After evaluation the advantages and disadvantages of Storyboard and SwiftUI, it is recommended that you choose Storyboard to create UIs rather than SwiftUI, which is still fairly new.</p>
+<hr />
+<blockquote>
+<p>The <code>guard</code> keyword allows you to check a particular statement. If it's valid, then perform the next operation. If not, then just throw an exception.</p>
+</blockquote>
+<p><code>AVkit</code> helps you to create interfaces for media playback, which will enable you to create the interface for your video player. The <code>AVkit</code> has an in built AV player that you'll make reference to in order to load or play video.</p>
+<p><code>AVFoundation</code>, gives you control over different things such as device cameras or processing audio. For your video player app, you'll need to be able to process videos. The <code>AVfoundation</code> helps you configure the audio and video interactions within your UI.</p>
+<hr />
+<h2 id="ios-uiview">iOS UIView<a class="headerlink" href="#ios-uiview" title="Permanent link"></a></h2>
+<p>The main building block for the user interface (UI) of an app is a View object that is created from the View class. The View object occupies a rectangular screen area - like the one highlighted below - and is responsible for the processing of drawings and events. The UIView is the base class for widgets that are used to create interactive components of the UI such as buttons and text fields.</p>
+<p>So, simply put, UIView can be considered a rectangle on the screen that displays a certain type of content. This can be a label, a text, an image, or anything that an iOS app can display. In an actual sense, a view occupies a rectangular shape on any mobile device screen.</p>
+<hr />
+<h2 id="additional-resources">Additional resources<a class="headerlink" href="#additional-resources" title="Permanent link"></a></h2>
+<h3 id="learn-more">Learn more<a class="headerlink" href="#learn-more" title="Permanent link"></a></h3>
+<p>Here is a list of additional reading material that may consolidate some of the knowledge you've gained so far and be helpful as you continue your learning journey.</p>
+<ul>
+<li><a href="https://developer.apple.com/documentation/avfoundation/avplayer">AVPlayer</a></li>
+<li><a href="https://blog.shipbook.io/swiftui-vs-storyboard">SwiftUI vs Storyboard</a></li>
+</ul>
+<hr />
+<h2 id="exercise-create-the-player">Exercise: Create the player<a class="headerlink" href="#exercise-create-the-player" title="Permanent link"></a></h2>
+<h3 id="aims">Aims<a class="headerlink" href="#aims" title="Permanent link"></a></h3>
+<h4 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link"></a></h4>
+<p>Create a video player that plays a video file</p>
+<h4 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link"></a></h4>
+<ul>
+<li>Create an iOS project</li>
+<li>Add an mp4 video file to your new project</li>
+<li>Add import statements AVKit and AVFoundation to your ViewController class</li>
+<li>Add an override function to ViewController</li>
+<li>Create a function that plays the video file</li>
+<li>Call the play function in the override function initially created</li>
+</ul>
+<h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link"></a></h3>
+<p>Step 1: Create a new project using the Xcode App Template and call it video_player
+Step 2: Add an mp4 video file to the  video_player module in the project
+Step 8: Run the app on either an simulator or physical device.</p>
+<p><strong>Note:</strong> The the app should have a controller with features such as play, pause and volume as shown in the screenshot above. You should be able to control the playback of the video.</p>
+<h3 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link"></a></h3>
+<ol>
+<li>Remember to add the video file to the project before running the app.</li>
+<li>If you want to choose a simulator, ensure that you setup your simulator properly. You can learn more about simulators in the Simulators section of this course.</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ViewController.swift</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">//  ViewController.swift</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1">//  video_player</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kd">import</span> <span class="nc">UIKit</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="kd">import</span> <span class="nc">AVKit</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="kd">import</span> <span class="nc">AVFoundation</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="kd">class</span> <span class="nc">ViewController</span><span class="p">:</span> <span class="bp">UIViewController</span>  <span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="c1">// Do any additional setup after loading the view.</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidAppear</span><span class="p">(</span><span class="kc">_</span> <span class="n">animated</span><span class="p">:</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="n">playVideo</span><span class="p">()</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="p">}</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">playVideo</span><span class="p">(){</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">path</span><span class="p">=</span><span class="n">Bundle</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">path</span><span class="p">(</span><span class="n">forResource</span><span class="p">:</span> <span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="n">ofType</span><span class="p">:</span><span class="s">&quot;mp4&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>            <span class="bp">debugPrint</span><span class="p">(</span><span class="s">&quot;test.mp4 not found&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>            <span class="k">return</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="p">}</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="kd">let</span> <span class="nv">player</span> <span class="p">=</span> <span class="bp">AVPlayer</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">URL</span><span class="p">(</span><span class="n">fileURLWithPath</span><span class="p">:</span> <span class="n">path</span><span class="p">))</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="kd">let</span> <span class="nv">playerController</span> <span class="p">=</span> <span class="bp">AVPlayerViewController</span><span class="p">()</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="n">playerController</span><span class="p">.</span><span class="n">player</span><span class="p">=</span><span class="n">player</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="n">present</span><span class="p">(</span><span class="n">playerController</span><span class="p">,</span> <span class="n">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>            <span class="n">player</span><span class="p">.</span><span class="n">play</span><span class="p">()</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="p">}</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="p">}</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Introduction-Course-Week2-Simulators/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Simulators" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                Simulators
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../VCS-Course-2/Version-Control-Systems-Week1/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction to Version Control" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                Introduction to Version Control
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2023 Pejmans21
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/pejsamadi" target="_blank" rel="noopener" title="Pejman on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/pejmans21" target="_blank" rel="noopener" title="Pejman on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+  
+      <script src="../../assets/javascripts/bundle.6df46069.min.js"></script>
+      
+    
+  <script src="../../assets/js/custom.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,2525 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="My personal notes while I'm learning iOS on Coursera">
+      
+      
+      
+      
+        <link rel="prev" href="../../VCS-Course-2/Version-Control-Systems-Week3/">
+      
+      
+        <link rel="next" href="../Programming-Fundamentals-in-Swift-Week1-Conditions/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+    
+    
+      
+        <title>Basics - Meta iOS Developer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link rel="stylesheet" href="../../assets/stylesheets/custom.css">
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#additional-resources" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  Connect with <strong>@pejmans21</strong> on
+  <a rel="me" href="https://www.linkedin.com/in/pejman-samadi/">
+    <span class="twemoji linkedin">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </span>
+    <strong>LinkedIn</strong>
+  </a>
+  and
+  <a href="https://twitter.com/pejsamadi">
+    <span class="twemoji twitter">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </span>
+    <strong>Twitter</strong>
+  </a>
+  .
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Meta iOS Developer" class="md-header__button md-logo" aria-label="Meta iOS Developer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M640 317.9c0 91.3-39.4 148.5-110.3 148.5-62.6 0-95.8-34.6-156.9-136.6l-31.4-52.6c-8.3-12.5-14.5-24.2-21.2-35-20.1 33.8-47.1 83-47.1 83-67 116.6-104.6 141.2-156.9 141.2C43.42 466.4 0 409.1 0 320.5c0-143 79.78-278.1 183.9-278.1 50.2 0 93.8 24.68 144.8 89.5 37.1-50.1 78.1-89.5 130.6-89.5 99.1 0 180.7 125.7 180.7 275.5zM287.4 192.2c-42.9-62.1-70.9-80.5-104.4-80.5-61.9 0-113.78 106.1-113.78 210 0 48.5 18.48 75.7 49.58 75.7 30.2 0 49-19 103.2-103.8 0 0 24.7-39.1 65.4-101.4zm243.8 205.2c32.2 0 46.9-27.5 46.9-74.9 0-124.2-54.3-225.42-123.2-225.42-33.2 0-61.1 25.92-94.9 78.02 9.4 13.8 19.1 29 29.3 45.4l37.5 62.4c58.7 94.1 73.5 114.5 104.4 114.5z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Meta iOS Developer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pejmanS21/pejmans21.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pejmans21/Meta iOS Developer
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Meta iOS Developer" class="md-nav__button md-logo" aria-label="Meta iOS Developer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M640 317.9c0 91.3-39.4 148.5-110.3 148.5-62.6 0-95.8-34.6-156.9-136.6l-31.4-52.6c-8.3-12.5-14.5-24.2-21.2-35-20.1 33.8-47.1 83-47.1 83-67 116.6-104.6 141.2-156.9 141.2C43.42 466.4 0 409.1 0 320.5c0-143 79.78-278.1 183.9-278.1 50.2 0 93.8 24.68 144.8 89.5 37.1-50.1 78.1-89.5 130.6-89.5 99.1 0 180.7 125.7 180.7 275.5zM287.4 192.2c-42.9-62.1-70.9-80.5-104.4-80.5-61.9 0-113.78 106.1-113.78 210 0 48.5 18.48 75.7 49.58 75.7 30.2 0 49-19 103.2-103.8 0 0 24.7-39.1 65.4-101.4zm243.8 205.2c32.2 0 46.9-27.5 46.9-74.9 0-124.2-54.3-225.42-123.2-225.42-33.2 0-61.1 25.92-94.9 78.02 9.4 13.8 19.1 29 29.3 45.4l37.5 62.4c58.7 94.1 73.5 114.5 104.4 114.5z"/></svg>
+
+    </a>
+    Meta iOS Developer
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pejmanS21/pejmans21.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pejmans21/Meta iOS Developer
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../table-of-contents/" class="md-nav__link">
+        Meta iOS Developer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Introduction to iOS Mobile Application Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction to iOS Mobile Application Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          Week1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Week1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Introduction/Introduction-Course-Week1-Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Introduction/Introduction-Course-Week1-Mobile-Platforms/" class="md-nav__link">
+        Mobile-Platforms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Introduction/Introduction-Course-Week1-iOS-Developement/" class="md-nav__link">
+        iOS-Developement
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Week2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Week2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Introduction/Introduction-Course-Week2-Simulators/" class="md-nav__link">
+        Simulators
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Week3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Week3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Introduction/Introduction-Course-Week3-Project-Setup/" class="md-nav__link">
+        Project Setup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Version Control
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Version Control
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VCS-Course-2/Version-Control-Systems-Week1/" class="md-nav__link">
+        Introduction to Version Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VCS-Course-2/Version-Control-Systems-Week2/" class="md-nav__link">
+        Unix Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VCS-Course-2/Version-Control-Systems-Week3/" class="md-nav__link">
+        Git & Repository
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Programming Fundamentals in Swift
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Programming Fundamentals in Swift
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+          Week1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Week1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Basics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Basics
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-xcode" class="md-nav__link">
+    Downloading Xcode
+  </a>
+  
+    <nav class="md-nav" aria-label="Downloading Xcode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constants-variables" class="md-nav__link">
+    Constants &amp; Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-complete-exercises" class="md-nav__link">
+    How to complete exercises
+  </a>
+  
+    <nav class="md-nav" aria-label="How to complete exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-launch-xcode" class="md-nav__link">
+    Step 1: Launch Xcode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-new-playground" class="md-nav__link">
+    Step 2: Create new playground
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-select-template" class="md-nav__link">
+    Step 3: Select template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-save-the-playground" class="md-nav__link">
+    Step 4: Save the playground
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-clear-the-playground" class="md-nav__link">
+    Step 5: Clear the playground
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-run-your-code" class="md-nav__link">
+    Step 6: Run your code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-working-with-constants-and-variables" class="md-nav__link">
+    Exercise: Working with constants and variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise: Working with constants and variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#take-note" class="md-nav__link">
+    Take note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    Scenario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions" class="md-nav__link">
+    Instructions
+  </a>
+  
+    <nav class="md-nav" aria-label="Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-constant-for-the-day-of-the-week" class="md-nav__link">
+    Step 1: Create a constant for the day of the week
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-constant-for-the-temperature" class="md-nav__link">
+    Step 2: Create a constant for the temperature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-print-the-current-day" class="md-nav__link">
+    Step 3: Print the current day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-print-the-daily-temperature" class="md-nav__link">
+    Step 4: Print the daily temperature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-create-a-variable" class="md-nav__link">
+    Step 5: Create a variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-print-the-morning-temperature" class="md-nav__link">
+    Step 6: Print the morning temperature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-change-the-value" class="md-nav__link">
+    Step 7: Change the value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-print-the-evening-temperature" class="md-nav__link">
+    Step 8: Print the evening temperature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-create-another-constant" class="md-nav__link">
+    Step 9: Create another constant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-set-the-value-of-a-variable-based-on-the-value-of-another-constant" class="md-nav__link">
+    Step 10: Set the value of a variable based on the value of another constant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-11-print-the-average-weekly-temperature" class="md-nav__link">
+    Step 11: Print the average weekly temperature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-review-the-output-in-the-console" class="md-nav__link">
+    Step 12: Review the output in the console
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concluding-thoughts" class="md-nav__link">
+    Concluding thoughts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-operators-and-data-types" class="md-nav__link">
+    Exercise: Operators and data types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario_1" class="md-nav__link">
+    Scenario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions_1" class="md-nav__link">
+    Instructions
+  </a>
+  
+    <nav class="md-nav" aria-label="Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-constants-and-variables" class="md-nav__link">
+    Step 1: Create constants and variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-update-the-games-score" class="md-nav__link">
+    Step 2: Update the game’s score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-print-the-games-score" class="md-nav__link">
+    Step 3: Print the game’s score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-a-floating-point-variable" class="md-nav__link">
+    Step 4: Create a floating point variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-change-the-value-of-the-floating-point-variable" class="md-nav__link">
+    Step 5: Change the value of the floating point variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-print-the-current-levels-bonus-score" class="md-nav__link">
+    Step 6: Print the current level’s bonus score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-compute-the-games-final-score" class="md-nav__link">
+    Step 7: Compute the game’s final score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-print-the-games-final-score" class="md-nav__link">
+    Step 8: Print the game’s final score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-create-additional-constants" class="md-nav__link">
+    Step 9: Create additional constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-compute-the-current-levels-average-score" class="md-nav__link">
+    Step 10: Compute the current level’s average score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-11-print-the-current-levels-average-score" class="md-nav__link">
+    Step 11: Print the current level’s average score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-update-the-current-levels-average-score" class="md-nav__link">
+    Step 12: Update the current level’s average score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-13-print-the-updated-current-levels-average-score" class="md-nav__link">
+    Step 13: Print the updated current level’s average score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-14-review-the-output" class="md-nav__link">
+    Step 14: Review the output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concluding-thoughts_1" class="md-nav__link">
+    Concluding thoughts
+  </a>
+  
+    <nav class="md-nav" aria-label="Concluding thoughts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strings-methods" class="md-nav__link">
+    Strings Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-working-with-strings-in-swift" class="md-nav__link">
+    Exercise: Working with strings in Swift
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario_2" class="md-nav__link">
+    Scenario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions_2" class="md-nav__link">
+    Instructions
+  </a>
+  
+    <nav class="md-nav" aria-label="Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-constant" class="md-nav__link">
+    Step 1: Create constant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-print-the-current-day" class="md-nav__link">
+    Step 2: Print the current day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-more-constants" class="md-nav__link">
+    Step 3: Create more constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-determine-the-current-time" class="md-nav__link">
+    Step 4: Determine the current time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-print-the-current-time" class="md-nav__link">
+    Step 5: Print the current time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-print-the-current-time-and-day" class="md-nav__link">
+    Step 6: Print the current time and day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-determine-the-current-time-zone" class="md-nav__link">
+    Step 7: Determine the current time zone
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-update-the-current-time" class="md-nav__link">
+    Step 8: Update the current time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-print-the-updated-time" class="md-nav__link">
+    Step 9: Print the updated time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-print-the-updated-time-and-current-day" class="md-nav__link">
+    Step 10: Print the updated time and current day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-11-determine-the-short-name-for-a-given-day" class="md-nav__link">
+    Step 11: Determine the short name for a given day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-print-the-short-name-of-the-current-day" class="md-nav__link">
+    Step 12: Print the short name of the current day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-13-print-the-short-name-of-the-current-day-and-the-final-time" class="md-nav__link">
+    Step 13: Print the short name of the current day and the final time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concluding-thoughts_2" class="md-nav__link">
+    Concluding thoughts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources_1" class="md-nav__link">
+    Additional resources
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming-Fundamentals-in-Swift-Week1-Conditions/" class="md-nav__link">
+        Conditions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming-Fundamentals-in-Swift-Week1-Loops/" class="md-nav__link">
+        Loops
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming-Fundamentals-in-Swift-Week1-Optionals/" class="md-nav__link">
+        Optionals
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          Week2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Week2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming-Fundamentals-in-Swift-Week2-Arrays-Tuples/" class="md-nav__link">
+        Arrays & Tuples
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming-Fundamentals-in-Swift-Week2-Collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          Week3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Week3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming-Fundamentals-in-Swift-Week3-Functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming-Fundamentals-in-Swift-Week3-Closures/" class="md-nav__link">
+        Closures
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          Week4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Week4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming-Fundamentals-in-Swift-Week4-Structures/" class="md-nav__link">
+        Structures
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming-Fundamentals-in-Swift-Week4-Classes/" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+          Project
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Project
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming-Fundamentals-in-Swift-Week5-Part1/" class="md-nav__link">
+        Part 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming-Fundamentals-in-Swift-Week5-Part2/" class="md-nav__link">
+        Part 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming-Fundamentals-in-Swift-Week5-Part3/" class="md-nav__link">
+        Part 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-xcode" class="md-nav__link">
+    Downloading Xcode
+  </a>
+  
+    <nav class="md-nav" aria-label="Downloading Xcode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constants-variables" class="md-nav__link">
+    Constants &amp; Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-complete-exercises" class="md-nav__link">
+    How to complete exercises
+  </a>
+  
+    <nav class="md-nav" aria-label="How to complete exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-launch-xcode" class="md-nav__link">
+    Step 1: Launch Xcode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-new-playground" class="md-nav__link">
+    Step 2: Create new playground
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-select-template" class="md-nav__link">
+    Step 3: Select template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-save-the-playground" class="md-nav__link">
+    Step 4: Save the playground
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-clear-the-playground" class="md-nav__link">
+    Step 5: Clear the playground
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-run-your-code" class="md-nav__link">
+    Step 6: Run your code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-working-with-constants-and-variables" class="md-nav__link">
+    Exercise: Working with constants and variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise: Working with constants and variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#take-note" class="md-nav__link">
+    Take note:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    Scenario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions" class="md-nav__link">
+    Instructions
+  </a>
+  
+    <nav class="md-nav" aria-label="Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-constant-for-the-day-of-the-week" class="md-nav__link">
+    Step 1: Create a constant for the day of the week
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-constant-for-the-temperature" class="md-nav__link">
+    Step 2: Create a constant for the temperature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-print-the-current-day" class="md-nav__link">
+    Step 3: Print the current day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-print-the-daily-temperature" class="md-nav__link">
+    Step 4: Print the daily temperature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-create-a-variable" class="md-nav__link">
+    Step 5: Create a variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-print-the-morning-temperature" class="md-nav__link">
+    Step 6: Print the morning temperature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-change-the-value" class="md-nav__link">
+    Step 7: Change the value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-print-the-evening-temperature" class="md-nav__link">
+    Step 8: Print the evening temperature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-create-another-constant" class="md-nav__link">
+    Step 9: Create another constant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-set-the-value-of-a-variable-based-on-the-value-of-another-constant" class="md-nav__link">
+    Step 10: Set the value of a variable based on the value of another constant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-11-print-the-average-weekly-temperature" class="md-nav__link">
+    Step 11: Print the average weekly temperature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-review-the-output-in-the-console" class="md-nav__link">
+    Step 12: Review the output in the console
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concluding-thoughts" class="md-nav__link">
+    Concluding thoughts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-operators-and-data-types" class="md-nav__link">
+    Exercise: Operators and data types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario_1" class="md-nav__link">
+    Scenario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions_1" class="md-nav__link">
+    Instructions
+  </a>
+  
+    <nav class="md-nav" aria-label="Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-constants-and-variables" class="md-nav__link">
+    Step 1: Create constants and variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-update-the-games-score" class="md-nav__link">
+    Step 2: Update the game’s score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-print-the-games-score" class="md-nav__link">
+    Step 3: Print the game’s score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-a-floating-point-variable" class="md-nav__link">
+    Step 4: Create a floating point variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-change-the-value-of-the-floating-point-variable" class="md-nav__link">
+    Step 5: Change the value of the floating point variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-print-the-current-levels-bonus-score" class="md-nav__link">
+    Step 6: Print the current level’s bonus score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-compute-the-games-final-score" class="md-nav__link">
+    Step 7: Compute the game’s final score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-print-the-games-final-score" class="md-nav__link">
+    Step 8: Print the game’s final score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-create-additional-constants" class="md-nav__link">
+    Step 9: Create additional constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-compute-the-current-levels-average-score" class="md-nav__link">
+    Step 10: Compute the current level’s average score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-11-print-the-current-levels-average-score" class="md-nav__link">
+    Step 11: Print the current level’s average score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-update-the-current-levels-average-score" class="md-nav__link">
+    Step 12: Update the current level’s average score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-13-print-the-updated-current-levels-average-score" class="md-nav__link">
+    Step 13: Print the updated current level’s average score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-14-review-the-output" class="md-nav__link">
+    Step 14: Review the output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concluding-thoughts_1" class="md-nav__link">
+    Concluding thoughts
+  </a>
+  
+    <nav class="md-nav" aria-label="Concluding thoughts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strings-methods" class="md-nav__link">
+    Strings Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-working-with-strings-in-swift" class="md-nav__link">
+    Exercise: Working with strings in Swift
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario_2" class="md-nav__link">
+    Scenario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions_2" class="md-nav__link">
+    Instructions
+  </a>
+  
+    <nav class="md-nav" aria-label="Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-constant" class="md-nav__link">
+    Step 1: Create constant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-print-the-current-day" class="md-nav__link">
+    Step 2: Print the current day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-more-constants" class="md-nav__link">
+    Step 3: Create more constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-determine-the-current-time" class="md-nav__link">
+    Step 4: Determine the current time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-print-the-current-time" class="md-nav__link">
+    Step 5: Print the current time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-print-the-current-time-and-day" class="md-nav__link">
+    Step 6: Print the current time and day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-determine-the-current-time-zone" class="md-nav__link">
+    Step 7: Determine the current time zone
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-update-the-current-time" class="md-nav__link">
+    Step 8: Update the current time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-print-the-updated-time" class="md-nav__link">
+    Step 9: Print the updated time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-print-the-updated-time-and-current-day" class="md-nav__link">
+    Step 10: Print the updated time and current day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-11-determine-the-short-name-for-a-given-day" class="md-nav__link">
+    Step 11: Determine the short name for a given day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-print-the-short-name-of-the-current-day" class="md-nav__link">
+    Step 12: Print the short name of the current day
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-13-print-the-short-name-of-the-current-day-and-the-final-time" class="md-nav__link">
+    Step 13: Print the short name of the current day and the final time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concluding-thoughts_2" class="md-nav__link">
+    Concluding thoughts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources_1" class="md-nav__link">
+    Additional resources
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="additional-resources">Additional resources<a class="headerlink" href="#additional-resources" title="Permanent link"></a></h1>
+<h3 id="downloading-xcode">Downloading Xcode<a class="headerlink" href="#downloading-xcode" title="Permanent link"></a></h3>
+<p>Visit the Mac App Store to <a href="https://apps.apple.com/us/app/xcode/id497799835?ls=1&amp;mt=12">download Xcode</a>. When downloading Xcode, please note the following:</p>
+<ol>
+<li><strong>An Apple ID is required.</strong> Your Apple ID account holds your sign-in, contact and security information that lets you access Apple services such as the App Store, Apple Music, iCloud, iMessage, etc.</li>
+<li><strong>Xcode is free to use.</strong> When you are ready to distribute your apps to the App Store, there are different paid membership programs that you can choose from.</li>
+<li>Downloading and installing Xcode may take several minutes, even hours, to complete. <strong>It is recommended to install Xcode in advance</strong> before continuing your learning journey since you will be prompted to complete coding exercises using Xcode playgrounds.</li>
+</ol>
+<p>Here is a list of additional resources that may be helpful as you get started with Xcode and Swift.</p>
+<ul>
+<li><a href="https://developer.apple.com/support/xcode/">Xcode Support</a></li>
+<li><a href="https://developer.apple.com/support/compare-memberships/">Apple Developer Program</a></li>
+<li><a href="https://www.apple.com/uk/swift/playgrounds/">Swift Playground</a></li>
+<li><a href="https://www.swift.org/about/">About Swift</a></li>
+</ul>
+<h4 id="constants-variables">Constants &amp; Variables<a class="headerlink" href="#constants-variables" title="Permanent link"></a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Constants value doesn’t change</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">let</span> <span class="nv">number</span> <span class="p">=</span> <span class="mi">10</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="bp">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// 10</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">// Variables value can change</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kd">let</span> <span class="nv">age</span> <span class="p">=</span> <span class="mi">20</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="bp">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1">// 20</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Swift will perform type checks before compiling your code.</strong></p>
+</blockquote>
+<h2 id="how-to-complete-exercises">How to complete exercises<a class="headerlink" href="#how-to-complete-exercises" title="Permanent link"></a></h2>
+<p>Throughout this course, you will encounter different exercises to practice the programming concepts you learn about.</p>
+<p>In most exercises, you will be prompted to create a new playground in Xcode. The purpose of this reading is to provide you with a step-by-step guide on creating and launching a new playground in Xcode.</p>
+<h3 id="step-1-launch-xcode">Step 1: Launch Xcode<a class="headerlink" href="#step-1-launch-xcode" title="Permanent link"></a></h3>
+<p>Open the Finder application, navigate to the Applications folder and find the Xcode application.</p>
+<ul>
+<li>Click on it to launch the application.</li>
+<li>Once Xcode has launched, you should be presented with the “Welcome to Xcode” window.</li>
+</ul>
+<h3 id="step-2-create-new-playground">Step 2: Create new playground<a class="headerlink" href="#step-2-create-new-playground" title="Permanent link"></a></h3>
+<p>Next, from the menu bar at the top of the screen, choose: File &gt; New &gt; Playground…</p>
+<h3 id="step-3-select-template">Step 3: Select template<a class="headerlink" href="#step-3-select-template" title="Permanent link"></a></h3>
+<p>You will be presented with a window asking you to select a template for the new playground.</p>
+<ul>
+<li>For the platform, select "macOS".</li>
+<li>Then select the "Blank" template.</li>
+<li>Once you have selected the template, click "next".</li>
+</ul>
+<h3 id="step-4-save-the-playground">Step 4: Save the playground<a class="headerlink" href="#step-4-save-the-playground" title="Permanent link"></a></h3>
+<p>A new window will appear with the default name “MyPlayground”.</p>
+<ul>
+<li>For each exercise, you may choose to give the playground a unique name.</li>
+<li>Select the save location.</li>
+<li>Finally, click the “Create” button at the bottom right corner of the box.</li>
+</ul>
+<h3 id="step-5-clear-the-playground">Step 5: Clear the playground<a class="headerlink" href="#step-5-clear-the-playground" title="Permanent link"></a></h3>
+<p>Clear the playground of the default template code so that you have a fresh, clean playground to complete your exercises.</p>
+<h3 id="step-6-run-your-code">Step 6: Run your code<a class="headerlink" href="#step-6-run-your-code" title="Permanent link"></a></h3>
+<p>Once you have completed the exercise, use the "play" button to run the code. The playground output appears in the console at the bottom of the playground window.</p>
+<p><strong>Take note:</strong> Should you encounter a “failure to communicate error” when attempting to run your code, you may restart Xcode and try again.</p>
+<hr />
+<h2 id="exercise-working-with-constants-and-variables">Exercise: Working with constants and variables<a class="headerlink" href="#exercise-working-with-constants-and-variables" title="Permanent link"></a></h2>
+<p>In this exercise, you will have the opportunity to practice creating and using constants and variables with different data types. After completing this exercise, you will be able to demonstrate your ability to use Swift basics to implement code for a very basic weather app.</p>
+<p>Remember, the purpose of this exercise is to practice and build on your existing knowledge. Take your time to complete the individual steps. You will have access to the solution file after completing the exercise.</p>
+<h3 id="take-note">Take note:<a class="headerlink" href="#take-note" title="Permanent link"></a></h3>
+<p>Swift uses both constants and variables to optimize code. However, from a coding perspective, variables are often more difficult to handle since they can lead to undesirable patterns in your code if used incorrectly. For this reason, the Swift programming guidelines recommend using constants wherever possible and reserving the use of variables for when values <strong>will</strong> change.</p>
+<p>In this exercise, you will practice using both constants and variables.</p>
+<p>You may notice that Xcode issues a warning message when you use variables to store a value that never changes. This message serves as a reminder to use constants where you have only assigned a value once.</p>
+<h2 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link"></a></h2>
+<p>Imagine you are creating a weather app that computes daily and weekly temperatures. You will use constants and variables to define the temperature of the current day of the week and the average temperature for that week.</p>
+<h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link"></a></h2>
+<p>Create a new playground in Xcode to complete this exercise. Refer to the “<a href="https://www.coursera.org/learn/programming-fundamentals-swift/item/IH0Fd">How to complete exercises</a>” reading to refresh your memory on creating and launching a new playground in Xcode.</p>
+<p>Once you have created a new playground, follow the steps below to create your very own weather app.</p>
+<h3 id="step-1-create-a-constant-for-the-day-of-the-week">Step 1: Create a constant for the day of the week<a class="headerlink" href="#step-1-create-a-constant-for-the-day-of-the-week" title="Permanent link"></a></h3>
+<ol>
+<li>First, declare a constant for the day of the week. You may recall that to declare a constant you must use the keyword let followed by the constant’s name. For this exercise, call the constant day.</li>
+<li>Next, set the constant’s value to "Monday". To assign the value, add the equal sign after the constant name followed by the string "Monday".</li>
+</ol>
+<p>A string, as the name suggests, is a string of characters enclosed inside double quotes. Don’t worry too much about this now, you will learn more about strings later.</p>
+<p>You should now have a line of code that reads: <code>let day = "Monday"</code></p>
+<h3 id="step-2-create-a-constant-for-the-temperature">Step 2: Create a constant for the temperature<a class="headerlink" href="#step-2-create-a-constant-for-the-temperature" title="Permanent link"></a></h3>
+<ol>
+<li>In the next line, create another constant for the daily temperature. You may call it dailyTemperature.</li>
+<li>Set the value to 75.</li>
+</ol>
+<p>You should now have a line of code that reads <code>let dailyTemperature = 75</code>.</p>
+<p><strong>Tip</strong>: The dailyTemperature constant’s name uses a naming convention called “<strong>camel case notation</strong>”. This is useful because element names cannot contain spaces. Using camel case notation makes compound names easier to read.</p>
+<p>You should now have two different constants, one with a string value and the other with an integer. You might recall that a constant’s value may never change. Their values can only be set once.</p>
+<h3 id="step-3-print-the-current-day">Step 3: Print the current day<a class="headerlink" href="#step-3-print-the-current-day" title="Permanent link"></a></h3>
+<p>A print function, otherwise known as a print statement, allows you to "print" a message to the output console. For this step, use a print function to print the current day of the week.</p>
+<ol>
+<li>In a new line, insert the keyword print followed by parentheses. It should read like this: <code>print()</code></li>
+<li>Next, inside the parentheses, add the description that you would like to display in the console when the print function is executed. For example, <code>"Today is…"</code>.</li>
+<li>Finally, reference the constant in the print function. To do this, insert a backslash followed by the constant’s name in parentheses. For example <code>"\(day)"</code>. This is called “<strong>string interpolation</strong>”.</li>
+</ol>
+<p>You should now have a print function that reads: <code>print("Today is \(day)")</code>.</p>
+<p>Notice that the sentence inside the print function is also enclosed in double quotes.</p>
+<p>You can also insert text after the constant. For example, try adding “Rise and shine!” as a new sentence in the same print function.</p>
+<p><strong>Run your code and review the output.</strong></p>
+<p><strong>Tip:</strong> To run your code, click on the checkbox above the console. You should now have the sentence <code>"Today is Monday. Rise and shine!" displayed in the console.</code></p>
+<h3 id="step-4-print-the-daily-temperature">Step 4: Print the daily temperature<a class="headerlink" href="#step-4-print-the-daily-temperature" title="Permanent link"></a></h3>
+<p>Next, create a new print function to include the dailyTemperature constant. This will allow you to print the current day of the week and the daily temperature. For example, you may create the print function to read: <code>"The temperature on \(day) is \(dailyTemperature)°F"</code></p>
+<p>Run your code and review the output in the console.</p>
+<p>As you may have noticed, you can print as many custom values inside the same print function as you'd like.</p>
+<h3 id="step-5-create-a-variable">Step 5: Create a variable<a class="headerlink" href="#step-5-create-a-variable" title="Permanent link"></a></h3>
+<p>Next, you will create a variable that stores the <strong>current</strong> temperature on a given day.</p>
+<p>Since the current temperature may fluctuate throughout the day, the value of the variable may change. For this reason, you will use a variable as opposed to a constant.</p>
+<ol>
+<li>In a new line, create a variable by inserting the keyword var followed by the variable name. In this case, call it temperature.</li>
+<li>Set the initial value to 70.</li>
+</ol>
+<p>You should now have a line of code that reads <code>var temperature = 70</code>.</p>
+<p>For the purpose of this exercise, the value represents the temperature of Monday morning. You will have the opportunity to change this value later.</p>
+<h3 id="step-6-print-the-morning-temperature">Step 6: Print the morning temperature<a class="headerlink" href="#step-6-print-the-morning-temperature" title="Permanent link"></a></h3>
+<p>Print the morning temperature of the current day to the console. To achieve this, you will include the day constant as well as the temperature variable.</p>
+<p>Run your code and review the output in the console. The output should read: <code>"The temperature on Monday morning is 70°F."</code></p>
+<div class="admonition warning">
+<p>Don’t worry if you did not get the same result right away. Refer to step 3 to refresh your memory on using the print function. If you are still stuck, you may review the solution code in the next reading after completing this exercise.</p>
+</div>
+<h3 id="step-7-change-the-value">Step 7: Change the value<a class="headerlink" href="#step-7-change-the-value" title="Permanent link"></a></h3>
+<p>Next, practice changing the value of the temperature variable by setting it to 80.</p>
+<p>To do this, insert <code>temperature = 80</code> in a new line. This value represents the evening temperature.</p>
+<p>Note that you should not include the var keyword again. This is because you are adjusting a variable’s value, as opposed to creating a new one.</p>
+<h3 id="step-8-print-the-evening-temperature">Step 8: Print the evening temperature<a class="headerlink" href="#step-8-print-the-evening-temperature" title="Permanent link"></a></h3>
+<p>Print the evening temperature of the current day to the console.</p>
+<p>Run your code and review the output in the console. The output should read: "The temperature on <strong>Monday</strong> evening is <strong>80</strong>°F."</p>
+<h3 id="step-9-create-another-constant">Step 9: Create another constant<a class="headerlink" href="#step-9-create-another-constant" title="Permanent link"></a></h3>
+<p>Create a constant that stores the average temperature of the week. Call it weeklyTemperature and set its value to 75.</p>
+<h3 id="step-10-set-the-value-of-a-variable-based-on-the-value-of-another-constant">Step 10: Set the value of a variable based on the value of another constant<a class="headerlink" href="#step-10-set-the-value-of-a-variable-based-on-the-value-of-another-constant" title="Permanent link"></a></h3>
+<p>Update the value of the temperature variable to the value of the weeklyTemperature constant. This makes sure the weather app is focusing on the average temperature of the week.</p>
+<p>To achieve this, set temperature equal to weeklyTemperature.</p>
+<h3 id="step-11-print-the-average-weekly-temperature">Step 11: Print the average weekly temperature<a class="headerlink" href="#step-11-print-the-average-weekly-temperature" title="Permanent link"></a></h3>
+<p>Print the average temperature of the week to the console by referencing the temperature variable in a new print function.</p>
+<p>Now run your code. The output to the console should read: "The average temperature this week is <strong>75°F</strong>."</p>
+<h3 id="step-12-review-the-output-in-the-console">Step 12: Review the output in the console<a class="headerlink" href="#step-12-review-the-output-in-the-console" title="Permanent link"></a></h3>
+<p>After running your program, review the output in the console and note it down.</p>
+<p>The first printed statement should be: "Today is Monday. Rise and shine!"</p>
+<h2 id="concluding-thoughts">Concluding thoughts<a class="headerlink" href="#concluding-thoughts" title="Permanent link"></a></h2>
+<p>In this exercise, you practiced creating and using variables to store values. You also learned how to use the print function to output these values to the console.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">let</span> <span class="nv">day</span> <span class="p">=</span> <span class="s">&quot;Monday&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">let</span> <span class="nv">dailyTemperature</span> <span class="p">=</span> <span class="mi">75</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Today is </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s">, Rise and shine!&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;The temperature on </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s"> is </span><span class="si">\(</span><span class="n">dailyTemperature</span><span class="si">)</span><span class="s">°F.&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kd">var</span> <span class="nv">temperature</span> <span class="p">=</span> <span class="mi">70</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;The temperature on </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s"> morning is </span><span class="si">\(</span><span class="n">temperature</span><span class="si">)</span><span class="s">°F.&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">temperature</span> <span class="p">=</span> <span class="mi">80</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;The temperature on </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s"> evening is </span><span class="si">\(</span><span class="n">temperature</span><span class="si">)</span><span class="s">°F.&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="kd">let</span> <span class="nv">weeklyTemperature</span> <span class="p">=</span> <span class="mi">75</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;The average temperature this week is </span><span class="si">\(</span><span class="n">weeklyTemperature</span><span class="si">)</span><span class="s">°F.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="exercise-operators-and-data-types">Exercise: Operators and data types<a class="headerlink" href="#exercise-operators-and-data-types" title="Permanent link"></a></h2>
+<p>You've learned that operators allow you to perform operations on variables and values to manipulate individual data items and return a specific result. Now to put theory to practice, you will explore how to use operators to perform simple calculations using different data types.</p>
+<h2 id="scenario_1">Scenario<a class="headerlink" href="#scenario_1" title="Permanent link"></a></h2>
+<p>Suppose you are creating a simple game with multiple levels. After completing each level, the player receives a score. You will use operators and data types to tally up the total game score based on the player’s performance in each level. You will also compute the current level’s average score.</p>
+<h2 id="instructions_1">Instructions<a class="headerlink" href="#instructions_1" title="Permanent link"></a></h2>
+<p>Create a new playground in Xcode to complete this exercise. Refer to the “<a href="https://www.coursera.org/learn/programming-fundamentals-swift/supplement/IH0Fd/how-to-complete-exercises">How to complete exercises</a>” reading to refresh your memory on creating and launching a new playground in Xcode. Once you have created a new playground, follow the steps below to create your very own game with multiple levels.</p>
+<h3 id="step-1-create-constants-and-variables">Step 1: Create constants and variables<a class="headerlink" href="#step-1-create-constants-and-variables" title="Permanent link"></a></h3>
+<p>Create a constant and variable for the game’s score and the current level’s score.</p>
+<ol>
+<li>First, <strong>declare a constant</strong> for the current level’s score. For example,<code>let levelScore = 10</code>.</li>
+<li>Next, <strong>create a variable</strong> for the game’s score. You may call it gameScore. Set its value to 0.</li>
+</ol>
+<p><strong>Note:</strong> The levelScore constant and gameScore variable names use “camel case notation”. This makes them easy to identify and read.</p>
+<h3 id="step-2-update-the-games-score">Step 2: Update the game’s score<a class="headerlink" href="#step-2-update-the-games-score" title="Permanent link"></a></h3>
+<p>Use the <strong>addition assignment operator</strong> (<code>+=</code>) to add the current level’s score to the game’s score.</p>
+<p>The operator performs two different operations at the same time. It first adds the values of the gameScore variable and levelScore constant and then assigns the result to the gameScore variable.</p>
+<p>You should now have a line of code that reads <code>gameScore += levelScore</code>.</p>
+<h3 id="step-3-print-the-games-score">Step 3: Print the game’s score<a class="headerlink" href="#step-3-print-the-games-score" title="Permanent link"></a></h3>
+<p>Use the print statement to print the game’s score to the console. You can add any custom description to the print statement, for example: “The game’s score is…”. This will output the description with a value to the console.</p>
+<p><strong>Tip:</strong> Remember to use backslash with the gameScore variable in parenthesis in your print statement. This is called “string interpolation”.</p>
+<p>Now run your code and review the output. The following should display in the console: "The game's score is 10."</p>
+<h3 id="step-4-create-a-floating-point-variable">Step 4: Create a floating point variable<a class="headerlink" href="#step-4-create-a-floating-point-variable" title="Permanent link"></a></h3>
+<p>In some cases, the score will not incur an entire point and partial points might need to be awarded.</p>
+<p>Create a variable that stores the current level’s bonus score: Call it levelBonusScore and set its initial value to 10.0.</p>
+<p><strong>Tip:</strong> Recall that this type of value is called a <strong>floating point</strong> value.</p>
+<h3 id="step-5-change-the-value-of-the-floating-point-variable">Step 5: Change the value of the floating point variable<a class="headerlink" href="#step-5-change-the-value-of-the-floating-point-variable" title="Permanent link"></a></h3>
+<p>Next, try to change the value of the levelBonusScore variable to 20. You can do this by inserting the following code in a new line:</p>
+<p>levelBonusScore = 20</p>
+<p>You may think that the levelBonusScore variable can also store integer values. The next step proves that this is not the case.</p>
+<h3 id="step-6-print-the-current-levels-bonus-score">Step 6: Print the current level’s bonus score<a class="headerlink" href="#step-6-print-the-current-levels-bonus-score" title="Permanent link"></a></h3>
+<p>Print the current level’s bonus score to the console by inserting the following line of code: <code>print("The level's bonus score is \(levelBonusScore).")</code></p>
+<p>Run your code and review the output in the console. Notice the value of the levelBonusScore variable is 20.0 instead of 20. This is because the variable only stores floating point values.</p>
+<h3 id="step-7-compute-the-games-final-score">Step 7: Compute the game’s final score<a class="headerlink" href="#step-7-compute-the-games-final-score" title="Permanent link"></a></h3>
+<p>Next, you are going to add the current level’s bonus score to the game’s final score with the addition assignment operator. Note that you must first convert the current level’s bonus score to an <strong>integer</strong> value. This is because you can’t add floating point values to integer values.</p>
+<ol>
+<li>First insert the gameScore variable followed by the addition assignment operator (+=).</li>
+<li>Then specify the type you would like the levelBonusScore to change to. Since it needs to be an integer, use the keyword Int.</li>
+<li>Finally, insert the levelBonusScore variable inside parentheses.</li>
+</ol>
+<p>You should now have a line of code that reads: <code>gameScore += Int(levelBonusScore)</code></p>
+<p><strong>Tip:</strong> This method of changing the type is called “<strong>type casting</strong>”.</p>
+<h3 id="step-8-print-the-games-final-score">Step 8: Print the game’s final score<a class="headerlink" href="#step-8-print-the-games-final-score" title="Permanent link"></a></h3>
+<p>Now that you have added the bonus level score to the total game score, print the game’s final score to the console and run your code.</p>
+<p>The output in the console should read: "The game's final score is 30."</p>
+<h3 id="step-9-create-additional-constants">Step 9: Create additional constants<a class="headerlink" href="#step-9-create-additional-constants" title="Permanent link"></a></h3>
+<p>Next, suppose the game uses the player’s average score to determine if they qualify for a bonus level. Before you can determine the average, you must first identify the lowest and highest scores and define the total levels in the game.</p>
+<p>Create constants for the current level’s lowest and highest scores and the number of levels in the game.</p>
+<ol>
+<li>First, declare a constant for the current level’s lowest score. For example, <code>let levelLowestScore = 50</code>.</li>
+<li>Next, create a constant for the current level’s highest score. You may call it levelHighestScore. Set its value to 99.</li>
+<li>Finally, define a constant that stores the number of levels of the game. Call it levels and set its initial value to 10.</li>
+</ol>
+<h3 id="step-10-compute-the-current-levels-average-score">Step 10: Compute the current level’s average score<a class="headerlink" href="#step-10-compute-the-current-levels-average-score" title="Permanent link"></a></h3>
+<p>Next, use the previously declared constants to determine the current level’s average score. For this step, you will create new constants and use operators to define their values.</p>
+<ol>
+<li>First, subtract the current level’s lowest score from the current level’s highest score. Store the result in a new constant called levelScoreDifference.</li>
+<li>Next, divide the value determined in the previous step by the number of levels to get the current level’s average score. Store the result in a new constant called levelAverageScore.</li>
+</ol>
+<p>The current level’s average score isn’t quite accurate in this case. You will explore why that happens in the following steps.</p>
+<h3 id="step-11-print-the-current-levels-average-score">Step 11: Print the current level’s average score<a class="headerlink" href="#step-11-print-the-current-levels-average-score" title="Permanent link"></a></h3>
+<p>Print the current level’s average score to the console and run your code. The output in the console should read: "The level's average score is 4."</p>
+<p>Notice the value of the averageLevelScore constant is 4 instead of 4.9. This is because when you divide two integers, an integer value is returned. You will fix this in the next step.</p>
+<h3 id="step-12-update-the-current-levels-average-score">Step 12: Update the current level’s average score<a class="headerlink" href="#step-12-update-the-current-levels-average-score" title="Permanent link"></a></h3>
+<p>Use type casting to convert levelScoreDifference and levels to floating point constants before dividing them. Store the result in a new constant called averageLevelScore.</p>
+<p><strong>Tip:</strong> Previously you used the keyword Int to change the value to an integer, for this step you must use the keyword Double to change an integer value to a floating point.</p>
+<h3 id="step-13-print-the-updated-current-levels-average-score">Step 13: Print the updated current level’s average score<a class="headerlink" href="#step-13-print-the-updated-current-levels-average-score" title="Permanent link"></a></h3>
+<p>Print the updated current level’s average score to the console and run your code.</p>
+<p>The output in the console should read: "The level's average score is 4.9"</p>
+<h3 id="step-14-review-the-output">Step 14: Review the output<a class="headerlink" href="#step-14-review-the-output" title="Permanent link"></a></h3>
+<p>After running your program, review and note down the output.</p>
+<p>The first printed statement should be: "The game's score is 10."</p>
+<h2 id="concluding-thoughts_1">Concluding thoughts<a class="headerlink" href="#concluding-thoughts_1" title="Permanent link"></a></h2>
+<p>In this exercise, you practiced using compound assignment operators to update the values of variables. You also used type casting to change the types of constants and variables.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">let</span> <span class="nv">levelScore</span> <span class="p">=</span> <span class="mi">10</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">var</span> <span class="nv">gameScore</span> <span class="p">=</span> <span class="mi">0</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">gameScore</span> <span class="o">+=</span> <span class="n">levelScore</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;The game&#39;s score is </span><span class="si">\(</span><span class="n">gameScore</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kd">var</span> <span class="nv">levelBonusScore</span> <span class="p">=</span> <span class="mf">10.0</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">// levelBonusScore will be float even an integer assign to it!</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">levelBonusScore</span> <span class="p">=</span> <span class="mi">20</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;The level&#39;s bonus score is </span><span class="si">\(</span><span class="n">levelBonusScore</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">gameScore</span> <span class="o">+=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">levelBonusScore</span><span class="p">)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="kd">let</span> <span class="nv">levelLowestScore</span> <span class="p">=</span> <span class="mi">50</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="kd">let</span> <span class="nv">levelHighestScore</span> <span class="p">=</span> <span class="mi">99</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="kd">let</span> <span class="nv">levels</span> <span class="p">=</span> <span class="mi">10</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="cm">/*</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="cm">let levelScoreDifference = (levelHighestScore - levelLowestScore) / levels</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="cm">// Should be 4.9 NOT 4 (because two Int</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="cm">print(&quot;The level&#39;s average score is \(levelScoreDifference).&quot;)</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="cm"> */</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="kd">let</span> <span class="nv">levelScoreDifference</span> <span class="p">=</span> <span class="nb">Float</span><span class="p">(</span><span class="n">levelHighestScore</span> <span class="o">-</span> <span class="n">levelLowestScore</span><span class="p">)</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="kd">let</span> <span class="nv">averageLevelScore</span> <span class="p">=</span> <span class="n">levelScoreDifference</span> <span class="o">/</span> <span class="nb">Float</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;The level&#39;s average score is </span><span class="si">\(</span><span class="n">averageLevelScore</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="strings-methods">Strings Methods<a class="headerlink" href="#strings-methods" title="Permanent link"></a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">let</span> <span class="nv">quote</span> <span class="p">=</span> <span class="s">&quot;Hello World&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">// Check Prefix</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">quote</span><span class="p">.</span><span class="n">hasPrefix</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">)</span>    <span class="c1">// true</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">quote</span><span class="p">.</span><span class="n">hasPrefix</span><span class="p">(</span><span class="s">&quot;h&quot;</span><span class="p">)</span>    <span class="c1">// false</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1">// Check Suffix</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">quote</span><span class="p">.</span><span class="n">hasSuffix</span><span class="p">(</span><span class="s">&quot;D&quot;</span><span class="p">)</span>    <span class="c1">// false</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">quote</span><span class="p">.</span><span class="n">hasSuffix</span><span class="p">(</span><span class="s">&quot;d&quot;</span><span class="p">)</span>    <span class="c1">// true</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">quote</span><span class="p">.</span><span class="n">uppercased</span><span class="p">()</span>    <span class="c1">// HELLO WORLD</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">quote</span><span class="p">.</span><span class="n">lowercased</span><span class="p">()</span>    <span class="c1">// hello world</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="c1">// Count lenght of String</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="kd">let</span> <span class="nv">theCount</span> <span class="p">=</span> <span class="n">quote</span><span class="p">.</span><span class="bp">count</span>    <span class="c1">// 11</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="kd">let</span> <span class="nv">longString</span> <span class="p">=</span> <span class="s">&quot;&quot;&quot; hello there</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="s">                    bye</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="s">                    &quot;&quot;&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="exercise-working-with-strings-in-swift">Exercise: Working with strings in Swift<a class="headerlink" href="#exercise-working-with-strings-in-swift" title="Permanent link"></a></h2>
+<p>In this exercise, you will practice working with strings to implement a very basic calendar app.</p>
+<h2 id="scenario_2">Scenario<a class="headerlink" href="#scenario_2" title="Permanent link"></a></h2>
+<p>Suppose you are creating a calendar app that works with different time zones. You will use strings to determine the current day of the week and the current time and time zone.</p>
+<h2 id="instructions_2">Instructions<a class="headerlink" href="#instructions_2" title="Permanent link"></a></h2>
+<p>Create a new playground in Xcode to complete this exercise. Refer to the “How to complete exercises” reading to refresh your memory on creating and launching a new playground in Xcode.</p>
+<p>Once you have created a new playground, follow the steps below to create your very own calendar app.</p>
+<h3 id="step-1-create-constant">Step 1: Create constant<a class="headerlink" href="#step-1-create-constant" title="Permanent link"></a></h3>
+<p>Create a constant for the current day of the week. For example, let day equal "Monday".</p>
+<p><strong>Tip</strong>: Remember to use double quotes for the day’s name since it is a string.</p>
+<h3 id="step-2-print-the-current-day">Step 2: Print the current day<a class="headerlink" href="#step-2-print-the-current-day" title="Permanent link"></a></h3>
+<p>Use the print statement to print the current day of the week to the console. You can add any custom description to the print statement, for example: "Today is…". This will output the description with a value to the console.</p>
+<p><strong>Tip:</strong> Remember to use backslash with the day constant in parentheses in your print statement. Recall that this is called <strong>“string interpolation”</strong>.</p>
+<h3 id="step-3-create-more-constants">Step 3: Create more constants<a class="headerlink" href="#step-3-create-more-constants" title="Permanent link"></a></h3>
+<p>Create constants for the current time’s components.</p>
+<p>You will insert the values as strings instead of integers for the current hour and minutes. This is because it is easier to determine the current time if all of its components are already strings. Don’t worry about the time zone yet.</p>
+<ol>
+<li>First, declare a constant for the current hour. For example, let hour equal "6".</li>
+<li>Next, create a constant for the minutes. You may call it minutes. Set its value to "15".</li>
+<li>Finally, define a constant that stores the current period of the day. Call it period and set its initial value to "PM".</li>
+</ol>
+<p>You should now have three constants that you will use in the next step of the exercise.</p>
+<h3 id="step-4-determine-the-current-time">Step 4: Determine the current time<a class="headerlink" href="#step-4-determine-the-current-time" title="Permanent link"></a></h3>
+<p>Next, determine the current time.</p>
+<ol>
+<li>First, create a variable for the current time and call it time.</li>
+<li>Then, use <strong>string concatenation</strong> with the <strong>addition operator</strong> to determine the current time from its components.</li>
+<li>Finally, assign the result to the time variable.</li>
+</ol>
+<p>You should now have a line of code that reads: var time = hour + ":" + minutes + " " + period</p>
+<p><strong>Tip:</strong> Recall that <strong>string concatenation</strong> describes the action of adding components, like other strings, together.</p>
+<h3 id="step-5-print-the-current-time">Step 5: Print the current time<a class="headerlink" href="#step-5-print-the-current-time" title="Permanent link"></a></h3>
+<p>Print the current time to the console and run your code.</p>
+<p>The output on the console should read: "It is 6:15 PM."</p>
+<h3 id="step-6-print-the-current-time-and-day">Step 6: Print the current time and day<a class="headerlink" href="#step-6-print-the-current-time-and-day" title="Permanent link"></a></h3>
+<p>Print the current <strong>time</strong> and <strong>day</strong> to the console. You may print as many custom values as you wish with the same print statement.</p>
+<p>Run your code and review the output. The output on the console should read: "It is 6:15 PM on Monday."</p>
+<h3 id="step-7-determine-the-current-time-zone">Step 7: Determine the current time zone<a class="headerlink" href="#step-7-determine-the-current-time-zone" title="Permanent link"></a></h3>
+<p>Create a constant that stores the current time zone. Call it timezone and set its value to "PST".</p>
+<h3 id="step-8-update-the-current-time">Step 8: Update the current time<a class="headerlink" href="#step-8-update-the-current-time" title="Permanent link"></a></h3>
+<p>Use the addition assignment operator with string interpolation to add the current time zone to the current time.</p>
+<p>Your code should read: <code>time += " \(timezone)"</code></p>
+<h3 id="step-9-print-the-updated-time">Step 9: Print the updated time<a class="headerlink" href="#step-9-print-the-updated-time" title="Permanent link"></a></h3>
+<p>Print the updated time to the console and run your code.</p>
+<p>The output on the console should read: "It is 6:15 PM PST."</p>
+<h3 id="step-10-print-the-updated-time-and-current-day">Step 10: Print the updated time and current day<a class="headerlink" href="#step-10-print-the-updated-time-and-current-day" title="Permanent link"></a></h3>
+<p>Print the updated time and current day to the console.</p>
+<p>The output on the console should read: "It is 6:15 PM PST on Monday."</p>
+<h3 id="step-11-determine-the-short-name-for-a-given-day">Step 11: Determine the short name for a given day<a class="headerlink" href="#step-11-determine-the-short-name-for-a-given-day" title="Permanent link"></a></h3>
+<p>Next, configure the calendar app to display the short name of the current day of the week. For example, Wednesday's short name is Wed and Sunday's short name is Sun.</p>
+<ol>
+<li>Declare a constant called shortDay.</li>
+<li>Use the prefix method on day. In the method parameter, pass in 3 to retrieve the initial three elements of a string.</li>
+</ol>
+<p>Your code should read:</p>
+<p><code>let shortDay = day.prefix(3)</code></p>
+<h3 id="step-12-print-the-short-name-of-the-current-day">Step 12: Print the short name of the current day<a class="headerlink" href="#step-12-print-the-short-name-of-the-current-day" title="Permanent link"></a></h3>
+<p>Print the short name of the current day of the week to the console and run your code.</p>
+<p>The output on the console should read: "Today is Mon."</p>
+<h3 id="step-13-print-the-short-name-of-the-current-day-and-the-final-time">Step 13: Print the short name of the current day and the final time<a class="headerlink" href="#step-13-print-the-short-name-of-the-current-day-and-the-final-time" title="Permanent link"></a></h3>
+<p>Print the short name of the current day of the week and the final time to the console.</p>
+<p>Run your code and review the output. The output on the console should read: "It is 6:15 PM PST on Mon."</p>
+<h2 id="concluding-thoughts_2">Concluding thoughts<a class="headerlink" href="#concluding-thoughts_2" title="Permanent link"></a></h2>
+<p>In this exercise, you practiced using string concatenation to add multiple strings together. You also used string interpolation to print custom values to the console.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span>
+<span class="normal"><a href="#__codelineno-4-23">23</a></span>
+<span class="normal"><a href="#__codelineno-4-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">let</span> <span class="nv">day</span> <span class="p">=</span> <span class="s">&quot;Monday&quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Today is </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="kd">let</span> <span class="nv">hour</span> <span class="p">=</span> <span class="s">&quot;6&quot;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="kd">let</span> <span class="nv">minutes</span> <span class="p">=</span> <span class="s">&quot;15&quot;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="kd">let</span> <span class="nv">period</span> <span class="p">=</span> <span class="s">&quot;PM&quot;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="kd">var</span> <span class="nv">time</span> <span class="p">=</span> <span class="n">hour</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="n">minutes</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">period</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;It is </span><span class="si">\(</span><span class="n">time</span><span class="si">)</span><span class="s"> on </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="kd">let</span> <span class="nv">timezone</span> <span class="p">=</span> <span class="s">&quot;PST&quot;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="n">time</span> <span class="o">+=</span> <span class="s">&quot; </span><span class="si">\(</span><span class="n">timezone</span><span class="si">)</span><span class="s">&quot;</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;It is </span><span class="si">\(</span><span class="n">time</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;It is </span><span class="si">\(</span><span class="n">time</span><span class="si">)</span><span class="s"> on </span><span class="si">\(</span><span class="n">day</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="kd">let</span> <span class="nv">shortDay</span> <span class="p">=</span> <span class="n">day</span><span class="p">.</span><span class="kr">prefix</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Today is </span><span class="si">\(</span><span class="n">shortDay</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="bp">print</span><span class="p">(</span><span class="s">&quot;It is </span><span class="si">\(</span><span class="n">time</span><span class="si">)</span><span class="s"> on </span><span class="si">\(</span><span class="n">shortDay</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="additional-resources_1">Additional resources<a class="headerlink" href="#additional-resources_1" title="Permanent link"></a></h2>
+<p>The following resources from the Swift Programming Language Guide may be helpful as you continue your learning journey:</p>
+<ul>
+<li><a href="https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html">Swift Basics</a></li>
+<li><a href="https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html">Basic Operators</a></li>
+<li><a href="https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html">Strings and Characters</a></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../VCS-Course-2/Version-Control-Systems-Week3/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Git &amp; Repository" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                Git & Repository
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Programming-Fundamentals-in-Swift-Week1-Conditions/" class="md-footer__link md-footer__link--next" aria-label="Next: Conditions" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                Conditions
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2023 Pejmans21
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/pejsamadi" target="_blank" rel="noopener" title="Pejman on Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/pejmans21" target="_blank" rel="noopener" title="Pejman on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+  
+      <script src="../../assets/javascripts/bundle.6df46069.min.js"></script>
+      
+    
+  <script src="../../assets/js/custom.js"></script>
+
+  </body>
+</html>

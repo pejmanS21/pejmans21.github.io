@@ -1,0 +1,118 @@
+site_name: Meta iOS Developer
+site_description: My personal notes while I'm learning iOS on Coursera
+
+watch: ["docs", "mkdocs.yml", ".overrides"]
+
+repo_url: https://github.com/pejmanS21/pejmans21.github.io
+repo_name: pejmans21/Meta iOS Developer
+
+theme:
+  name: "material"
+  icon:
+    logo: fontawesome/brands/meta
+    repo: fontawesome/brands/square-github
+
+  # favicon: favicon.ico
+
+  features:
+    # - header.autohide
+    - navigation.footer
+    - content.code.copy
+    - toc.follow
+
+  custom_dir: .overrides
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+
+plugins:
+  - search
+  - mkdocstrings
+
+# Syntax Highlighting
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: 
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/pejsamadi
+      name: Pejman on Twitter
+
+    - icon: fontawesome/brands/github
+      link: https://github.com/pejmans21
+      name: Pejman on GitHub
+
+extra_css:
+  - stylesheets/extra.css
+# - css/termynal.css
+# - css/custom.css
+# extra_javascript:
+# - js/termynal.js
+# - js/custom.js
+
+nav:
+  - Home: home.md
+  - Meta iOS Developer: index.md
+  - Introduction to iOS Mobile Application Development:
+    - Week1: 
+      - Introduction: Introduction/Introduction-Course-Week1-Introduction.md
+      - Mobile-Platforms: Introduction/Introduction-Course-Week1-Mobile-Platforms.md
+      - iOS-Developement: Introduction/Introduction-Course-Week1-iOS-Developement.md
+    - Week2:
+      - Simulators: Introduction/Introduction-Course-Week2-Simulators.md
+    - Week3:
+      - Project Setup: Introduction/Introduction-Course-Week3-Project-Setup.md
+  - Version Control:
+    - Introduction to Version Control: VCS-Course-2/Version-Control-Systems-Week1.md
+    - Unix Commands: VCS-Course-2/Version-Control-Systems-Week2.md
+    - Git & Repository: VCS-Course-2/Version-Control-Systems-Week3.md
+  - Programming Fundamentals in Swift:
+    - Week1:
+      - Basics: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week1-Basics.md
+      - Conditions: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week1-Conditions.md
+      - Loops: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week1-Loops.md
+      - Optionals: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week1-Optionals.md
+    - Week2:
+      - Arrays & Tuples: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week2-Arrays-Tuples.md
+      - Collections: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week2-Collections.md
+    - Week3:
+      - Functions: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week3-Functions.md
+      - Closures: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week3-Closures.md
+    - Week4:
+      - Structures: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week4-Structures.md
+      - Classes: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week4-Classes.md
+    - Project:
+      - Part 1: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week5-Part1.md
+      - Part 2: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week5-Part2.md
+      - Part 3: PFiS-Course-3/Programming-Fundamentals-in-Swift-Week5-Part3.md
+
+copyright: Copyright &copy; 2022 - 2023 Pejmans21

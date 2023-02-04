@@ -1,0 +1,32 @@
+{#-
+    This file was automatically generated - do not edit
+  -#}
+  {% extends "main.html" %}
+  {% block tabs %}
+    {{ super() }}
+    <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
+    <section class="mdx-container">
+      <div class="md-grid md-typeset">
+        <div class="mdx-hero">
+          <div class="mdx-hero__image">
+              <!-- <img src="https://images.ctfassets.net/ooa29xqb8tix/20z2bbsf2AEyUgtpcn4Ztv/8fd96dc334d33407255411b7207d9a2e/SwiftUI_part1_400x300_-_5.svg" alt="" width="1659" height="1200" draggable="false"> -->
+              <img src="https://redwerk.com/wp-content/uploads/2019/02/Apps_for_iPhone_and_iPad-1.png" alt="" width="1659" height="1200" draggable="false">
+            </div>
+
+          <div class="mdx-hero__content">
+            <h1>
+                <a style="color: #eeeeee;" href="https://www.coursera.org/professional-certificates/meta-ios-developer?" target="_blank">
+                    Meta iOS Developer
+                </a>
+            </h1>
+            <p>{{ config.site_description }}.</p>
+            <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}" class="md-button md-button--primary">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endblock %}
+  {% block content %}{% endblock %}
+  {% block footer %}{% endblock %}

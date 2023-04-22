@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[1633],{7424:a=>{a.exports=JSON.parse('{"label":"Django","permalink":"/blog/tags/django","allTagsPath":"/blog/tags","count":1}')}}]);

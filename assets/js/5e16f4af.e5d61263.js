@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[9138],{146:s=>{s.exports=JSON.parse('{"title":"Skills","slug":"/category/skills","permalink":"/docs/category/skills","navigation":{"previous":{"title":"Education","permalink":"/docs/education/"},"next":{"title":"Programming Languages","permalink":"/docs/skills/programming-languages"}}}')}}]);

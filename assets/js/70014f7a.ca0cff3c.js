@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[3573],{6323:o=>{o.exports=JSON.parse('{"label":"MKDocs","permalink":"/blog/tags/mk-docs","allTagsPath":"/blog/tags","count":1}')}}]);

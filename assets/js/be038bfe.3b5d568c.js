@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[5884],{7142:e=>{e.exports=JSON.parse('{"title":"Education","slug":"/category/education","permalink":"/docs/category/education","navigation":{"previous":{"title":"Upkey","permalink":"/docs/experince/upkey"},"next":{"title":"Education","permalink":"/docs/education/"}}}')}}]);

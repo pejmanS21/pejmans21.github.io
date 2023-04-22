@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[2425],{9146:o=>{o.exports=JSON.parse('{"label":"PyTorch","permalink":"/blog/tags/py-torch","allTagsPath":"/blog/tags","count":1}')}}]);

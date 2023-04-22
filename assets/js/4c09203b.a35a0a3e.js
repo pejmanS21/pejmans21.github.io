@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[7587],{3904:e=>{e.exports=JSON.parse('{"title":"Experience","slug":"/category/experience","permalink":"/docs/category/experience","navigation":{"previous":{"title":"About","permalink":"/docs/"},"next":{"title":"AiMedic","permalink":"/docs/experince/aimedic"}}}')}}]);

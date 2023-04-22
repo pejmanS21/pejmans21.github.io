@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[6793],{8530:a=>{a.exports=JSON.parse('{"label":"Coursera","permalink":"/blog/tags/coursera","allTagsPath":"/blog/tags","count":1}')}}]);

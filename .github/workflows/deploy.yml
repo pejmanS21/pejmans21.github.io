@@ -31,5 +31,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Build output to publish to the `gh-pages` branch:
           publish_dir: ./build
-#           user_name: pejmans21
-#           user_email: pezhmansamadi21@gmail.com
+            user_name: pejmans21
+            user_email: pezhmansamadi21@gmail.com

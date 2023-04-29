@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[4958],{606:l=>{l.exports=JSON.parse('{"label":"Ansible","permalink":"/blog/tags/ansible","allTagsPath":"/blog/tags","count":1}')}}]);
